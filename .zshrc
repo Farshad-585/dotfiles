@@ -109,6 +109,7 @@ alias ls='eza --icons --group-directories-first'
 alias cat='bat'
 alias cd='z'
 alias vim='nvim'
+alias config='/usr/bin/git --git-dir=/Users/farshad/.cfg/ --work-tree=/Users/farshad'
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
