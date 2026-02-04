@@ -1,0 +1,12 @@
+[user]
+	name = farshad
+	email = farshad.ghanbari@hotmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOnadfE6cBD8V1DPrKuOB2dQO1UOU7kfdmyNyWtTLQLV
+[core]
+	autocrlf = input
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
