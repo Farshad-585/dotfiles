@@ -1,0 +1,71 @@
+command = /bin/zsh --login -i -c "tmux new-session -A"
+
+theme = Catppuccin Mocha
+font-size = 15
+background-opacity = 0.7
+background-blur = 10
+background-blur-radius = 20
+mouse-hide-while-typing = true
+window-decoration = true
+cursor-opacity = 0.3
+macos-titlebar-style = hidden
+window-padding-x = 5
+
+
+# CMD + t -> Create a new tmux window
+keybind = cmd+t=text:\x02c\x02,
+
+# CMD + w -> Close the current tmux pane
+keybind = cmd+w=text:\x02x
+
+# CMD + r -> Rename the current tmux window
+keybind = cmd+r=text:\x02,
+
+# CMD + SHIFT + r -> Rename the current tmux session
+keybind = cmd+shift+r=text:\x02$
+
+# CMD + OPT + - -> Split the current tmux pane horizontally
+keybind = cmd+alt+-=text:\x02"
+
+# CMD + OPT + \ -> Split the current tmux pane vertically
+keybind = cmd+alt+\=text:\x02%
+
+# CMD + h -> Switch to the previous tmux window
+keybind = cmd+h=text:\x02(
+
+# CMD + l -> Switch to the next tmux window
+keybind = cmd+l=text:\x02)
+
+# CMD + j -> Select the previous tmux pane
+keybind = cmd+j=text:\x02p
+
+# CMD + k -> Select the next tmux pane
+keybind = cmd+k=text:\x02n
+
+# CMD + z -> Toggle zoom for the current tmux pane
+keybind = cmd+z=text:\x02z
+
+# CMD + p -> Show the tmux session list
+keybind = cmd+p=text:\x02s
+
+# CMD + SHIFT + p -> Show the tmux window list
+keybind = cmd+shift+p=text:\x02w
+
+# CMD + SHIFT + ; -> Enter tmux command mode
+keybind = cmd+shift+;=text:\x02:
+
+# CMD + c -> Enter tmux copy mode
+keybind = cmd+c=text:\x02[
+
+# CMD + i -> Install a new tmux plugin (via TPM)
+keybind = cmd+i=text:\x02I
+
+# CMD + u -> Update tmux plugins (via TPM)
+keybind = cmd+u=text:\x02U
+
+# CMD + g -> Open lazygit inside tmux
+keybind = cmd+g=text:\x02g
+
+# CMD + SHIFT + t -> Open sesh inside tmux
+keybind = cmd+shift+t=text:\x02T
+
