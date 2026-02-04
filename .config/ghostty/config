@@ -10,6 +10,7 @@ window-decoration = true
 cursor-opacity = 0.3
 macos-titlebar-style = hidden
 window-padding-x = 5
+macos-option-as-alt = true
 
 
 # CMD + t -> Create a new tmux window
