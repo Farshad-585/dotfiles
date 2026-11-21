@@ -1,5 +1,3 @@
-command = /bin/zsh --login -i -c "tmux new-session -A"
-
 theme = Catppuccin Mocha
 font-size = 15
 background-opacity = 0.7
@@ -12,61 +10,62 @@ macos-titlebar-style = hidden
 window-padding-x = 5
 macos-option-as-alt = true
 
+# Herdr chords (macOS Cmd-based -> Ctrl+b prefix sequences, matching ~/.config/herdr/config.toml)
+# Font zoom stays on Ghostty's defaults: Cmd++ / Cmd+= (in), Cmd+- (out), Cmd+0 (reset).
+# Copy/paste stays on Ghostty's defaults: Cmd+c / Cmd+v.
+# Pane & Neovim split navigation uses Ctrl+h/j/k/l directly.
 
-# CMD + t -> Create a new tmux window
-keybind = cmd+t=text:\x02c\x02,
-
-# CMD + w -> Close the current tmux pane
+# Panes
+# Disable Ghostty's native right-split shortcut; Herdr owns pane splitting.
+keybind = cmd+d=unbind
+# Cmd+Shift+\ -> Split side by side
+keybind = cmd+shift+\=text:\x02%
+keybind = cmd+|=text:\x02%
+# Cmd+Shift+- -> Split top / bottom
+keybind = cmd+shift+-=text:\x02"
+keybind = cmd+_=text:\x02"
+# Cmd+w -> Close current pane
 keybind = cmd+w=text:\x02x
-
-# CMD + r -> Rename the current tmux window
-keybind = cmd+r=text:\x02,
-
-# CMD + SHIFT + r -> Rename the current tmux session
-keybind = cmd+shift+r=text:\x02$
-
-# CMD + OPT + - -> Split the current tmux pane horizontally
-keybind = cmd+alt+-=text:\x02"
-
-# CMD + OPT + \ -> Split the current tmux pane vertically
-keybind = cmd+alt+\=text:\x02%
-
-# CMD + h -> Switch to the previous tmux window
-keybind = cmd+h=text:\x02(
-
-# CMD + l -> Switch to the next tmux window
-keybind = cmd+l=text:\x02)
-
-# CMD + j -> Select the previous tmux pane
-keybind = cmd+j=text:\x02p
-
-# CMD + k -> Select the next tmux pane
-keybind = cmd+k=text:\x02n
-
-# CMD + z -> Toggle zoom for the current tmux pane
+# Cmd+z -> Toggle pane zoom
 keybind = cmd+z=text:\x02z
 
-# CMD + p -> Show the tmux session list
-keybind = cmd+p=text:\x02s
-
-# CMD + SHIFT + p -> Show the tmux window list
+# Tabs
+# Cmd+t -> New tab
+keybind = cmd+t=text:\x02c
+# Cmd+j -> Previous tab
+keybind = cmd+j=text:\x02p
+# Cmd+k -> Next tab
+keybind = cmd+k=text:\x02n
+# Cmd+r -> Rename tab
+keybind = cmd+r=text:\x02,
+# Cmd+Shift+p -> Go to any agent / terminal
 keybind = cmd+shift+p=text:\x02w
 
-# CMD + SHIFT + ; -> Enter tmux command mode
-keybind = cmd+shift+;=text:\x02:
-
-# CMD + c -> Enter tmux copy mode
-keybind = cmd+c=text:\x02[
-
-# CMD + i -> Install a new tmux plugin (via TPM)
-keybind = cmd+i=text:\x02I
-
-# CMD + u -> Update tmux plugins (via TPM)
-keybind = cmd+u=text:\x02U
-
-# CMD + g -> Open lazygit inside tmux
-keybind = cmd+g=text:\x02g
-
-# CMD + SHIFT + t -> Open sesh inside tmux
+# Workspaces
+# Cmd+Shift+t -> New workspace
 keybind = cmd+shift+t=text:\x02T
+# Cmd+p -> Workspace list
+keybind = cmd+p=text:\x02s
+# Cmd+h -> Previous workspace
+keybind = cmd+h=text:\x02(
+# Cmd+l -> Next workspace
+keybind = cmd+l=text:\x02)
+# Cmd+Shift+r -> Rename workspace
+keybind = cmd+shift+r=text:\x02$
 
+# Tools & UI
+# Cmd+g -> lazygit popup
+keybind = cmd+g=text:\x02g
+# Cmd+Shift+; -> Herdr settings
+keybind = cmd+shift+;=text:\x02:
+keybind = cmd+shift+:=text:\x02:
+# Cmd+Shift+b -> Toggle sidebar
+keybind = cmd+shift+b=text:\x02b
+# Cmd+/ -> Key help
+keybind = cmd+/=text:\x02?
+# Cmd+Shift+d -> Detach
+keybind = cmd+shift+d=text:\x02d
+
+# OpenCode multiline prompt
+keybind = shift+enter=text:\x1b[13;2u
+keybind = alt+enter=unbind

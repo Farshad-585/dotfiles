@@ -121,3 +121,13 @@ source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Added by Antigravity
+export PATH="/Users/farshad/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Terminal multiplexer: Herdr (agent-aware, ~/.config/herdr/config.toml). Not inside a
+# Herdr pane already (HERDR_ENV), or every pane would start a nested Herdr.
+if [[ -o interactive && -z "${HERDR_ENV:-}" && -t 0 && -t 1 ]] && command -v herdr >/dev/null 2>&1; then
+  herdr
+fi

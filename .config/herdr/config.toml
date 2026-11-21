@@ -1,0 +1,84 @@
+# Herdr configuration (~/.config/herdr/config.toml)
+# Docs: https://herdr.dev/tui/docs/configuration/  ·  check: herdr config check  ·  apply: herdr server reload-config
+#
+#   Cmd+Shift+\   split side by side        Cmd+Shift+-   split top/bottom
+#   Ctrl+h/j/k/l  move between panes (and Neovim splits)
+#   Cmd+w         close pane                Cmd+z         zoom pane
+#   Cmd+t         new tab                   Cmd+j/k       previous/next tab
+#   Cmd+r         rename tab                Cmd+Shift+p   go to any agent/terminal
+#   Cmd+p         workspace list            Cmd+h/l       previous/next workspace
+#   Cmd+Shift+t   new workspace             Cmd+Shift+r   rename workspace
+#   Cmd+g         lazygit popup             Cmd+Shift+;   settings
+#   Cmd+Shift+b   toggle sidebar            Cmd+/         key help
+#   Cmd+Shift+d   detach (everything keeps running; `herdr` reattaches)
+
+onboarding = false
+
+[theme]
+name = "catppuccin"
+
+[ui]
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = true
+prompt_new_tab_name = false   # Cmd+t opens a tab straight away (rename with Cmd+r)
+
+[ui.toast]
+delivery = "herdr"            # in-app popup when a background agent finishes or needs you
+
+[ui.sound]
+enabled = true
+
+[keys]
+prefix = "ctrl+b"
+split_vertical = ["prefix+v", "prefix+%"]             # Cmd+Shift+\
+split_horizontal = ["prefix+minus", 'prefix+"']       # Cmd+Shift+-
+close_pane = "prefix+x"                                # Cmd+w
+zoom = "prefix+z"                                      # Cmd+z
+clear_pane = "prefix+ctrl+l"                           # Ctrl+b Ctrl+l clears pane (since Ctrl+l moves right)
+new_tab = "prefix+c"                                   # Cmd+t
+previous_tab = "prefix+p"                              # Cmd+j
+next_tab = "prefix+n"                                  # Cmd+k
+rename_tab = "prefix+,"                                # Cmd+r
+goto = "prefix+w"                                      # Cmd+Shift+p
+workspace_picker = "prefix+s"                          # Cmd+p
+previous_workspace = "prefix+("                        # Cmd+h
+next_workspace = "prefix+)"                            # Cmd+l
+new_workspace = ["prefix+shift+n", "prefix+shift+t"]   # Cmd+Shift+t
+rename_workspace = ["prefix+shift+w", "prefix+$"]      # Cmd+Shift+r
+settings = "prefix+:"                                  # Cmd+Shift+;
+toggle_sidebar = "prefix+b"                            # Cmd+Shift+b
+help = "prefix+?"                                      # Cmd+/
+detach = ["prefix+q", "prefix+d"]                      # Cmd+Shift+d
+
+[[keys.command]]
+key = "prefix+g"                                       # Cmd+g
+type = "popup"
+command = "lazygit"
+description = "lazygit"
+width = "90%"
+height = "90%"
+
+# Ctrl+h/j/k/l: move between panes; in a pane running Neovim/Vim/fzf the key goes to the app first.
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/navigate.sh left"
+description = "focus pane left (Neovim-aware)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/navigate.sh down"
+description = "focus pane down (Neovim-aware)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/navigate.sh up"
+description = "focus pane up (Neovim-aware)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/navigate.sh right"
+description = "focus pane right (Neovim-aware)"
